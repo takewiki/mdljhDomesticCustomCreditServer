@@ -60,7 +60,7 @@ RefundOverduePaymentsViewServer <- function(input,output,session,dms_token,erp_t
 
     tsui::run_dataTable2(id ='RefundOverduePayments_resultView' ,data =data )
 
-    tsui::run_download_xlsx(id = 'dl_RefundOverduePayments',data = data,filename = "当前逾期表数据.xlsx")
+    tsui::run_download_xlsx(id = 'dl_RefundOverduePayments_new',data = data,filename = "当前逾期表数据.xlsx")
 
 
 
@@ -77,7 +77,7 @@ RefundOverduePaymentsViewServer <- function(input,output,session,dms_token,erp_t
     tsui::run_dataTable2(id ='RefundOverduePayments_resultView' ,data =data )
 
     filename = paste0("逾期表会计所属期为",servenFDate,"的数据.xlsx")
-    tsui::run_download_xlsx(id = 'dl_RefundOverduePayments',data = data,filename = filename)
+    tsui::run_download_xlsx(id = 'dl_RefundOverduePayments_bak',data = data,filename = filename)
 
 
   })

@@ -57,7 +57,7 @@ GrossProfitViewServer <- function(input,output,session,dms_token,erp_token) {
     tsui::run_dataTable2(id ='GrossProfit_resultView' ,data =data )
 
     filename = paste0("当前毛利表",servenFDate,"的近六月数据.xlsx")
-    tsui::run_download_xlsx(id = 'dl_GrossProfit',data = data,filename = filename)
+    tsui::run_download_xlsx(id = 'dl_GrossProfit_new',data = data,filename = filename)
 
 
 
@@ -74,7 +74,7 @@ GrossProfitViewServer <- function(input,output,session,dms_token,erp_token) {
     tsui::run_dataTable2(id ='GrossProfit_resultView' ,data =data )
 
     filename = paste0("毛利表",servenFDate,"存档的近六月数据.xlsx")
-    tsui::run_download_xlsx(id = 'dl_GrossProfit',data = data,filename = filename)
+    tsui::run_download_xlsx(id = 'dl_GrossProfit_bak',data = data,filename = filename)
 
 
   })
