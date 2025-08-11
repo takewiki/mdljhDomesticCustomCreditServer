@@ -66,7 +66,7 @@ GrossProfitViewServer <- function(input,output,session,dms_token,erp_token) {
   shiny::observeEvent(input$text_date_GrossProfit_FDate_bak,{
 
 
-    FDate =text_date_GrossProfit_FDate()
+    FDate =text_date_GrossProfit_FDate_bak()
     servenFDate= substr(FDate, 1, 7)
 
     data = mdljhDomesticCustomCreditPkg::GrossProfit_archive_view(dms_token =dms_token,FDate = FDate)
