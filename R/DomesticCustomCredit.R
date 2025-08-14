@@ -68,6 +68,44 @@ DomesticCustomCreditViewServer <- function(input,output,session,dms_token,erp_to
 
 
   })
+#到期债权表
+  shiny::observeEvent(input$btn_DomesticCustomCredit_MATUREDDEBIT_view,{
+    FDate=text_date_DomesticCustomCredit_FDate()
+    servenFDate= substr(FDate, 1, 7)
+
+    data = mdljhDomesticCustomCreditPkg::DomesticCustomCredit_MATUREDDEBIT_view(erp_token = erp_token,FDate = FDate)
+
+
+    tsui::run_dataTable2(id ='DomesticCustomCredit_resultView' ,data =data )
+    servenFDate= substr(FDate, 1, 7)
+
+    filename = paste0("到期债权表",servenFDate,".xlsx")
+    tsui::run_download_xlsx(id = 'dl_DomesticCustomCredit_MATUREDDEBIT',data = data,filename = filename)
+
+
+
+
+
+
+  })
+  #收款退款
+  shiny::observeEvent(input$btn_DomesticCustomCredit_Receiv_view,{
+    FDate=text_date_DomesticCustomCredit_FDate()
+
+    data =mdljhDomesticCustomCreditPkg::DomesticCustomCredit_Receive_view(erp_token =erp_token ,FDate = FDate)
+
+
+    tsui::run_dataTable2(id ='DomesticCustomCredit_resultView' ,data =data )
+    servenFDate= substr(FDate, 1, 7)
+    filename = paste0("收款及退款数据",servenFDate,".xlsx")
+    tsui::run_download_xlsx(id = 'dl_DomesticCustomCredit_Receiv',data = data,filename = filename)
+
+
+
+
+
+
+  })
 
 
 

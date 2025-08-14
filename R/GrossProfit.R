@@ -67,6 +67,7 @@ GrossProfitViewServer <- function(input,output,session,dms_token,erp_token) {
 
 
     FDate =text_date_GrossProfit_FDate_bak()
+    print(FDate)
     servenFDate= substr(FDate, 1, 7)
 
     data = mdljhDomesticCustomCreditPkg::GrossProfit_archive_view(dms_token =dms_token,FDate = FDate)
